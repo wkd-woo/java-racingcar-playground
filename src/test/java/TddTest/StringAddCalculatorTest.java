@@ -1,6 +1,7 @@
 package TddTest;
 
 import TddStudy.StringAddCalculator;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutionException;
@@ -11,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringAddCalculatorTest {
 
+    @DisplayName("null_또는_빈문자_전달")
     @Test
     void splitAndSum_null_또는_빈문자(){
 

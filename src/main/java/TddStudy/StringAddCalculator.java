@@ -3,12 +3,15 @@ package TddStudy;
 public class StringAddCalculator {
 
 
-    public static int splitAndSum(String something) {
-        if (something == null)
+    public static int splitAndSum(String text) {
+        if (text == null || text.isEmpty())
             return 0;
-
 
 
         return 1;
     }
+
+
+
+
 }
