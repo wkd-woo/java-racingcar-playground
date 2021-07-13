@@ -40,16 +40,23 @@ class StringAddCalculatorTest {
 
     @Test
     void splitAndSum_custom_구분자() throws Exception {
-        assertThat(StringAddCalculator.splitAndSum("//;\n1;2;3")).isEqualTo(6);
+        assertThat(StringAddCalculator.isCustom("//;\n1;2;3")).isEqualTo(6);
     }
 
+    @DisplayName("음수_입력시_예외")
     @Test
     void splitAndSum_negative() throws Exception {
-        assertThatThrownBy(() -> StringAddCalculator.splitAndSum("-1,2,3"))
+        assertThatThrownBy(() -> StringAddCalculator.isMinus("-1,2,3"))
             .isInstanceOf(RuntimeException.class);
     }
 
 
+    @DisplayName("문자열_형변환_후_덧셈")
+    @Test
+    void 더하기_테스트(){
+        String[] digits = {"1","2","3"};
+        assertThat(StringAddCalculator.sum(digits)).isEqualTo(6);
+    }
 
 
 
