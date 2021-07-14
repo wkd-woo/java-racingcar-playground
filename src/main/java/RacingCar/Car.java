@@ -1,7 +1,9 @@
 package RacingCar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Car {
     private String name;
@@ -30,14 +32,35 @@ public class Car {
     }
 }
 
+
 class Cars {
-    private List<Car> carList = new ArrayList<>();
+    private static final int CARS_SIZE = 3;
+
+    private final List<Car> carList;
+
+    public Cars(List<Car> cars) {
+
+        validateSize(cars);
+        validateDuplicate(cars);
+        this.carList = cars;
+    }
 
     public List<Car> getCars() {
+
         return carList;
     }
 
-    public Cars(List<Car> cars) {
-        this.carList = cars;
+    private void validateSize(List<Car> cars){
+        if(cars.size() != CARS_SIZE){
+            throw new IllegalArgumentException("차는 3개만 설정 가능합니다");
+        }
     }
+
+    private void validateDuplicate(List<Car> cars){
+        Set<Car> nonDuplicateCars = new HashSet<>(cars);
+        if(nonDuplicateCars.size() != CARS_SIZE){
+            throw new IllegalArgumentException("차 이름은 중복될 수 없습니다.");
+        }
+    }
+
 }
