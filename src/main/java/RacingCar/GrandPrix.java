@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class GrandPrix {
-
+    private static int TRACK_DISTANCE;
 
     public static List<Car> separateName(String inputs) {
         String[] names = inputs.split(",");
@@ -17,7 +17,16 @@ public class GrandPrix {
 
         Cars cars = new Cars(carList);
 
-
         return cars.getCars();
+    }
+
+    public static void setTrackDistance(int distance) {
+
+        TRACK_DISTANCE = distance;
+    }
+
+    public static int getTrackDistance() {
+
+        return TRACK_DISTANCE;
     }
 }
