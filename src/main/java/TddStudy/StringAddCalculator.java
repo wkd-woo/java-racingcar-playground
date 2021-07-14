@@ -1,10 +1,10 @@
 package TddStudy;
 
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringAddCalculator {
-
 
     public static int splitAndSum(String text) {
 
@@ -21,7 +21,7 @@ public class StringAddCalculator {
             return result;
         }
 
-        return 1;
+        return 0;
     }
 
     public static int sum(String[] texts) {
@@ -42,7 +42,7 @@ public class StringAddCalculator {
 
 
     public static int isCustom(String text) {
-        Matcher matcher = Pattern.compile("//;\n").matcher(text);
+        Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(text);
         System.out.println(matcher);
 
         int result = 0;
