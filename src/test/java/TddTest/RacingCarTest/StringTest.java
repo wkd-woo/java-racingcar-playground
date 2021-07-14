@@ -1,5 +1,6 @@
 package TddTest.RacingCarTest;
 
+import RacingCar.Car;
 import RacingCar.GrandPrix;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,5 +16,13 @@ class StringTest {
         assertThat(GrandPrix.separateName("0,1,2").size()).isEqualTo(3);
     }
 
+
+    @DisplayName("Car_이동_확인")
+    @Test
+    void 이동_확인(){
+        Car test = new Car("Test");
+        test.runTrack();
+        assertThat(test.getPosition()).isNotZero();
+    }
 
 }
