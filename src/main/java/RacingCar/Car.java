@@ -45,27 +45,27 @@ public class Car {
 class Cars {
     private static final int CARS_SIZE = 3;
 
-    private final List<Car> carList;
+    private final ArrayList<Car> carList;
 
-    public Cars(List<Car> cars) {
+    public Cars(ArrayList<Car> cars) {
 
         validateSize(cars);
         validateDuplicate(cars);
         this.carList = cars;
     }
 
-    public List<Car> getCars() {
+    public ArrayList<Car> getCars() {
 
         return carList;
     }
 
-    private void validateSize(List<Car> cars){
+    private void validateSize(ArrayList<Car> cars){
         if(cars.size() != CARS_SIZE){
             throw new IllegalArgumentException("차는 3개만 설정 가능합니다");
         }
     }
 
-    private void validateDuplicate(List<Car> cars){
+    private void validateDuplicate(ArrayList<Car> cars){
         Set<Car> nonDuplicateCars = new HashSet<>(cars);
         if(nonDuplicateCars.size() != CARS_SIZE){
             throw new IllegalArgumentException("차 이름은 중복될 수 없습니다.");

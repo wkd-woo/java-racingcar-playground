@@ -5,6 +5,8 @@ import RacingCar.GrandPrix;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,7 +38,6 @@ class GrandPrixTest {
 
     }
 
-
     @DisplayName("속도설정_확인_테스트")
     @Test
     void 속도설정_테스트() {
@@ -52,12 +53,21 @@ class GrandPrixTest {
 
     @DisplayName("Car_이동_확인")
     @Test
-    void 이동_확인(){
+    void 이동_확인() {
         Car test = new Car("Test");
         test.runTrack(.6);
 
         assertThat(test.getPosition()).isNotZero();
         assertThat(test.getPosition()).isEqualTo(1);
+    }
+
+    @DisplayName("차_이름설정")
+    @Test
+    void 게임_설정() {
+        GrandPrix testTrack = new GrandPrix();
+        testTrack.setCars("test1", "test2", "test3");
+
+        assertThat(testTrack.getNumOfCars()).isEqualTo(3);
     }
 }
 
