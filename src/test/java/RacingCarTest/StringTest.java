@@ -16,14 +16,4 @@ class StringTest {
         assertThat(GrandPrix.separateName("0,1,2").size()).isEqualTo(3);
     }
 
-    @DisplayName("Car_이동_확인")
-    @Test
-    void 이동_확인(){
-        Car test = new Car("Test");
-        test.runTrack();
-        assertThat(test.getPosition()).isNotZero();
-    }
-
-
-
 }

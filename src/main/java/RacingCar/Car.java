@@ -8,9 +8,11 @@ import java.util.Set;
 public class Car {
     private String name;
     private int position = 0;
+    private double velocity = 0;
 
     public Car(String name) {
         this.name = name;
+        getAccelerate();
     }
 
     public void showPosition() {
@@ -23,12 +25,19 @@ public class Car {
     }
 
 
-    public void runTrack() {
-        this.position++;
+    public void runTrack(double accelerate) {
+        if (accelerate >= 0.5)
+            this.position++;
     }
 
     public int getPosition() {
         return this.position;
+    }
+
+    public double getAccelerate() {
+        double dValue = Math.random();
+        this.velocity = dValue;
+        return this.velocity;
     }
 }
 
