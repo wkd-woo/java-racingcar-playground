@@ -2,7 +2,6 @@ package RacingCar;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Car {
@@ -13,6 +12,10 @@ public class Car {
     public Car(String name) {
         this.name = name;
         getAccelerate();
+    }
+
+    public String getName(){
+        return this.name;
     }
 
     public void showPosition() {
@@ -28,7 +31,6 @@ public class Car {
     public void runTrack(double accelerate) {
         if (accelerate >= 0.5){
             this.position++;
-            this.showPosition();
         }
     }
 
@@ -81,16 +83,48 @@ class Cars {
         }
     }
 
-    public void showPosition(){
-        carList.get(0).showPosition();
-        carList.get(1).showPosition();
-        carList.get(2).showPosition();
-    }
-
     public void runTrack(){
         carList.get(0).runTrack(carList.get(0).getAccelerate());
         carList.get(1).runTrack(carList.get(1).getAccelerate());
         carList.get(2).runTrack(carList.get(2).getAccelerate());
+    }
+
+    public void showTrack(){
+        carList.get(0).showPosition();
+        carList.get(1).showPosition();
+        carList.get(2).showPosition();
+        System.out.println("");
+    }
+
+    public ArrayList<String> whoIsWinner(int trackDistance){
+
+        ArrayList<String> WINNER = new ArrayList<String>();
+
+        if(carList.get(0).isFinished(trackDistance)){
+            WINNER.add(carList.get(0).getName());
+        }
+
+        if(carList.get(1).isFinished(trackDistance)){
+            WINNER.add(carList.get(1).getName());
+        }
+
+        if(carList.get(2).isFinished(trackDistance)){
+            WINNER.add(carList.get(2).getName());
+        }
+
+
+        return WINNER;
+    }
+
+    public boolean are_we_done(int trackDistance){
+        ArrayList<String> WINNER = whoIsWinner(trackDistance);
+
+        if(!WINNER.isEmpty()){
+            System.out.println(WINNER + "가 최종 우승했습니다.");
+            return true;
+        }
+
+        return false;
     }
 
     public void Finally(Car car, int trackDistance) {

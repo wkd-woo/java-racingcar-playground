@@ -21,6 +21,13 @@ class GrandPrixTest {
         assertThat(GrandPrix.getTrackDistance()).isNotNull();
     }
 
+    @DisplayName("getName_테스트")
+    @Test
+    void 이름_확인(){
+        Car test = new Car("test");
+        assertThat(test.getName()).isNotNull();
+    }
+
     @DisplayName("횟수설정_회차_확인_테스트")
     @Test
     void 횟수설정_테스트() {

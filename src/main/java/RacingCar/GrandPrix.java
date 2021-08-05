@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class GrandPrix {
     private static int TRACK_DISTANCE;
     private static Cars cars;
-    private static boolean areRunning = true;
+    private static boolean isEnd = false;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -19,13 +19,14 @@ public class GrandPrix {
         System.out.println("시도할 횟수는 몇회인가요?");
         setTrackDistance(sc.nextInt());
 
-        while(areRunning){
+        System.out.println("");
+        System.out.println("실행결과");
+
+        while(!isEnd){
             cars.runTrack();
-            areRunning = false;
-
+            cars.showTrack();
+            isEnd = cars.are_we_done(TRACK_DISTANCE);
         }
-
-        System.out.println("실행 결과");
 
     }
 
