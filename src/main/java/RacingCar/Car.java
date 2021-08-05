@@ -26,8 +26,10 @@ public class Car {
 
 
     public void runTrack(double accelerate) {
-        if (accelerate >= 0.5)
+        if (accelerate >= 0.5){
             this.position++;
+            this.showPosition();
+        }
     }
 
     public int getPosition() {
@@ -38,6 +40,13 @@ public class Car {
         double dValue = Math.random();
         this.velocity = dValue;
         return this.velocity;
+    }
+
+    public boolean isFinished(int trackDistance) {
+        if(this.position == trackDistance)
+            return true;
+
+        return false;
     }
 }
 
@@ -59,17 +68,36 @@ class Cars {
         return carList;
     }
 
-    private void validateSize(ArrayList<Car> cars){
-        if(cars.size() != CARS_SIZE){
+    private void validateSize(ArrayList<Car> cars) {
+        if (cars.size() != CARS_SIZE) {
             throw new IllegalArgumentException("차는 3개만 설정 가능합니다");
         }
     }
 
-    private void validateDuplicate(ArrayList<Car> cars){
+    private void validateDuplicate(ArrayList<Car> cars) {
         Set<Car> nonDuplicateCars = new HashSet<>(cars);
-        if(nonDuplicateCars.size() != CARS_SIZE){
+        if (nonDuplicateCars.size() != CARS_SIZE) {
             throw new IllegalArgumentException("차 이름은 중복될 수 없습니다.");
         }
     }
 
+    public void showPosition(){
+        carList.get(0).showPosition();
+        carList.get(1).showPosition();
+        carList.get(2).showPosition();
+    }
+
+    public void runTrack(){
+        carList.get(0).runTrack(carList.get(0).getAccelerate());
+        carList.get(1).runTrack(carList.get(1).getAccelerate());
+        carList.get(2).runTrack(carList.get(2).getAccelerate());
+    }
+
+    public void Finally(Car car, int trackDistance) {
+        if (car.getPosition() == trackDistance){
+
+        }
+
+
+    }
 }

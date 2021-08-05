@@ -51,6 +51,19 @@ class GrandPrixTest {
         assertThat(test.getAccelerate()).isBetween(0.0, 1.0);
     }
 
+    @DisplayName("트랙길이와_포지션이같으면_완주")
+    @Test
+    void 완주_확인(){
+        Car test = new Car("test");
+        assertThat(test.isFinished(1)).isFalse();
+
+        test.runTrack(1);
+        assertThat(test.isFinished(1)).isTrue();
+
+        test.runTrack(1);
+        assertThat(test.isFinished(2)).isTrue();
+    }
+
     @DisplayName("Car_이동_확인")
     @Test
     void 이동_확인() {
@@ -64,11 +77,22 @@ class GrandPrixTest {
     @DisplayName("차_이름설정")
     @Test
     void 게임_설정() {
-        GrandPrix testTrack = new GrandPrix();
-        testTrack.setCars("test1", "test2", "test3");
+        GrandPrix test = new GrandPrix();
+        test.separateName("test1, test2, test3");
 
-        assertThat(testTrack.getNumOfCars()).isEqualTo(3);
+        assertThat(test.getNumOfCars()).isEqualTo(3);
     }
+
+    @Test
+    void 게임_진행() {
+
+        GrandPrix test = new GrandPrix();
+        test.separateName("test1, test2, test3");
+        test.setTrackDistance(3);
+        assertThat(test.isGoing()).isEqualTo(3);
+    }
+
+
 }
 
 
