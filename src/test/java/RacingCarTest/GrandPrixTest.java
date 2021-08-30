@@ -84,4 +84,16 @@ class GrandPrixTest {
 
     }
 
+    @DisplayName("포지션_이동")
+    @Test
+    void isPositionMovableTest(){
+        Car test = new Car("Test");
+
+        test.runTrack(6);
+        assertThat(test.getPosition()).isEqualTo(1);
+        test.runTrack(4);
+        assertThat(test.getPosition()).isEqualTo(1);
+
+
+    }
 }
